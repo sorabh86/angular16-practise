@@ -7,15 +7,5 @@ import { Selected } from './types/common.interface';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Practise Angular 16';
-  selection:Selected = {
-    value:'component'
-  };
-
-  _constructor():void {
-    this.selection.value = 'material';
-    console.log(this.selection.value);
-    
-  }
 
 }
