@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Selected } from './types/common.interface';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'p1-project';
+  title = 'Practise Angular 16';
+  selection:Selected = {
+    value:'component'
+  };
+
+  _constructor():void {
+    this.selection.value = 'material';
+    console.log(this.selection.value);
+    
+  }
+
 }
