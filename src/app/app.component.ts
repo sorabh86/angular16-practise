@@ -9,9 +9,20 @@ export class AppComponent {
   serverName = '';
   servers = [];
 
+  constructor() {
+    this.servers.push({
+      id:0,name:"Server 1",date:new Date()
+    })
+    this.servers.push({
+      id:1,name:"Server 2",date:new Date()
+    })
+    this.servers.push({
+      id:2,name:"Server 3",date:new Date()
+    })
+  }
+
   onAddServerButtonClick() {
     if(this.serverName.length<1) {
-
       return;
     }
 
@@ -20,5 +31,11 @@ export class AppComponent {
       name:this.serverName,
       date:new Date()
     });
+
+    this.serverName = '';
+  }
+
+  onDeleteServerClick(index) {
+    this.servers.splice(index, 1);
   }
 }

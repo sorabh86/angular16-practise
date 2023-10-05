@@ -20,9 +20,12 @@
         </div>
     </div>
     <div class="list-group">
-        <div *ngFor="let server of servers" 
-        class="list-group-item">
+        <div *ngFor="let server of servers; let i = index" 
+        class="list-group-item clearfix">
             {{server.id}}. {{server.name}} - {{server.date}}
+            <button class="pull-right text-danger btn btn-danger"
+            (click)="onDeleteServerClick(i)"
+                style="cursor: pointer;">&times;</button>
         </div>
     </div>
 </div>
