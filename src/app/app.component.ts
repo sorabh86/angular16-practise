@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
-import { Selected } from './types/common.interface';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <div class="container">
+      <h1>I'm working</h1>
+    </div>
+  `,
+  styles: [`
+  
+  `]
 })
 export class AppComponent {
 
