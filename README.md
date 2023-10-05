@@ -37,7 +37,10 @@ ng new p1-project --no-strict
 ```bash
 # Create New Component using cli
 ng generate component ${name}
-ng g c ${name}
+ng g c ${name} --skip-tests
+
+# create sub-component
+ng g c ${main}/${name} --skip-tests
 ```
 4. Features
 	* String Interpolation => <div>{{$variable}}</div>
