@@ -1,1 +1,28 @@
-<h1>I'm in the AppComponent</h1>
+<div class="container">
+    <h1>My Server</h1>
+    <hr>
+    <div class="row form-group">
+        <div class="col-md-8">
+            <input type="text" class="form-control" 
+            (keyup.enter)="onAddServerButtonClick()"
+            [(ngModel)]="serverName"
+            placeholder="Server Name">
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-primary" 
+            [disabled]="serverName.length<1"
+            (click)="onAddServerButtonClick()">Add Server</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-info">Please enter your server name!!!</div>
+        </div>
+    </div>
+    <div class="list-group">
+        <div *ngFor="let server of servers" 
+        class="list-group-item">
+            {{server.id}}. {{server.name}} - {{server.date}}
+        </div>
+    </div>
+</div>

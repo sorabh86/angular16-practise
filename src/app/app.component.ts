@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Selected } from './types/common.interface';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +6,19 @@ import { Selected } from './types/common.interface';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  serverName = '';
+  servers = [];
 
+  onAddServerButtonClick() {
+    if(this.serverName.length<1) {
+
+      return;
+    }
+
+    this.servers.push({
+      id:this.servers.length,
+      name:this.serverName,
+      date:new Date()
+    });
+  }
 }
