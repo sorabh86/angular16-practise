@@ -26,6 +26,17 @@ ng new p1-project --no-strict
 15. Deployment
 16. Animations
 17. Testing
+18. Lifecycle Hooks
+
+## Lifecycle Hooks
+1. **ngOnChanges** - Called after a bound input property changes.
+2. **ngOnInit** - Called once the component is initialized.
+3. **ngDoCheck** - Called during every change detection run.
+4. **ngAfterContentInit** - Called after content (ng-content) has been projected into view
+5. **ngAfterContentChecked** - Called every time the protected content has been checked
+6. **ngAfterViewInit** - Called after the component's view (and child views) has been initialized.
+7. **ngAfterViewChecked** - Called every time the view (and child views) have been checked.
+8. **ngOnDestroy** - Called once the component is about to be destroyed
 
 ## Components
 1. Export a class with @Component meta or annotation
@@ -66,6 +77,15 @@ Directives are instructions in the DOM.
 <!-- get index -->
 <div *ngFor="let item of items; let i = index">Item: {{i}} {{item}}</div>
 ``` 
+6. **ng-content** - html template directive for adding child node in between nodes.
+```html
+<!-- child - mycomponent.html -->
+<ng-content></ng-content>
+<!-- parent - appcomponent.html -->
+<app-my-component>
+	<h3>Hello world</h3> <!-- this line added to the hook ng-content -->
+</app-my-component>
+``` 
 -
 ## Decorater
 1. @Input(<attribute-name>:string | default same as variable name) - used to expose your component variable set from outside;
@@ -82,6 +102,36 @@ export MyComponent {
 // trigger
 onTrigger.emit("sorabh86");
 ```
+3. @Component({}) - used to define the component on class.
+```ts
+@Component({
+	selector:string // name of custom html tag
+	template:string // html content
+	templateUrl:string // path to the html file
+	styles:Array<String> // string's of css styles
+	styleUrls:Array<String> // string's of css file path
+	encapsulation:String // ViewEncapsulation.[Native(uses shadow dom if available),None(styles affects no matter where),Emulated(default behaviour, angulare create it own shadow dom for styles)].
+
+})
+```
+4. ViewChild('refName') works with local Reference
+
+**Local Reference**
+
+We can also define local reference in component html file using #name.
+```html
+<!-- mycomponent.html -->
+<input type="text" #userNameInput placeholder="Enter Username">
+<button></button>
+```
+```ts
+// MyComponent.ts
+@ViewChild('userNameInput') username:ElementRef; //@angular/core
+
+// access
+username.nativeElement.value;
+```
+5. 
 
 
 ## Commands
