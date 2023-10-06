@@ -29,14 +29,39 @@ ng new p1-project --no-strict
 18. Lifecycle Hooks
 
 ## Lifecycle Hooks
-1. **ngOnChanges** - Called after a bound input property changes.
+1. **ngOnChanges** - Called after a bound input property changes. 
+```ts 
+class MyComponent implements OnChanges //@angular/core
+ngOnChanges(changes:SimpleChanges):void; //signature
+```
 2. **ngOnInit** - Called once the component is initialized.
+```ts 
+class MyComponent implements OnInit //@angular/core
+```
 3. **ngDoCheck** - Called during every change detection run.
+```ts 
+class MyComponent implements DoCheck //@angular/core
+```
 4. **ngAfterContentInit** - Called after content (ng-content) has been projected into view
+```ts 
+class MyComponent implements AfterContentInit //@angular/core
+```
 5. **ngAfterContentChecked** - Called every time the protected content has been checked
+```ts 
+class MyComponent implements AfterContentChecked //@angular/core
+```
 6. **ngAfterViewInit** - Called after the component's view (and child views) has been initialized.
+```ts 
+class MyComponent implements AfterViewInit //@angular/core
+```
 7. **ngAfterViewChecked** - Called every time the view (and child views) have been checked.
+```ts 
+class MyComponent implements AfterViewChecked //@angular/core
+```
 8. **ngOnDestroy** - Called once the component is about to be destroyed
+```ts 
+class MyComponent implements OnDestroy //@angular/core
+```
 
 ## Components
 1. Export a class with @Component meta or annotation
@@ -114,7 +139,8 @@ onTrigger.emit("sorabh86");
 
 })
 ```
-4. ViewChild('refName') works with local Reference
+4. ViewChild('refName') works with local Reference (ElementRef)
+5. ContentChild('refName) access the (ElementRef) from child, passed with (ng-content) tag.
 
 **Local Reference**
 
