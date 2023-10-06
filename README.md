@@ -37,7 +37,7 @@ ng new p1-project --no-strict
 ```bash
 # Create New Component using cli
 ng generate component ${name}
-ng g c ${name}
+ng g c ${name} --skip-tests
 ```
 4. Features
 	* String Interpolation => <div>{{$variable}}</div>
@@ -67,6 +67,21 @@ Directives are instructions in the DOM.
 <div *ngFor="let item of items; let i = index">Item: {{i}} {{item}}</div>
 ``` 
 -
+## Decorater
+1. @Input(<attribute-name>:string | default same as variable name) - used to expose your component variable set from outside;
+```ts
+export MyComponent {
+	@Input('attr-item') item:String;
+}
+```
+2. @Output() - used to expose EventEmitter to be accessed outside
+```ts
+// declaration
+@Output() onTrigger = new EventEmitter<string>();
+
+// trigger
+onTrigger.emit("sorabh86");
+```
 
 
 ## Commands
