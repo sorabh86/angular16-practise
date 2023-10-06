@@ -1,0 +1,9 @@
+input {
+    background: #222 !important;
+    border: #111 !important;
+    color: #eee;
+}
+
+hr {
+    border-color: #000;
+}

@@ -1,0 +1,14 @@
+.list-group-item {
+    background-color: #222;
+    color: #ddd;
+    border-color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.list-group-item strong {
+    margin: auto;
+}
+.list-group-item button {
+    margin-left: 16px;
+}

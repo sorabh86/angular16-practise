@@ -2,20 +2,3 @@ body {
     background: #444;
     color:#fff;
 }
-
-input {
-    background: #222 !important;
-    border: #111 !important;
-}
-
-hr {
-    border-color: #000;
-}
-.list-group {
-    border-radius: 18px;
-}
-.list-group > .list-group-item {
-    background-color: #222;
-    color: #ddd;
-    border-color: #444;
-}

@@ -1,0 +1,10 @@
+<div class="list-group-item clearfix">
+  {{ element.id }}. <strong>{{ element.name }}</strong> - {{ element.date }}
+  <button
+    class="pull-right text-danger btn btn-danger"
+    (click)="onDeleteServerClick()"
+    style="cursor: pointer"
+  >
+    &times;
+  </button>
+</div>
