@@ -120,6 +120,11 @@ We can divide them into `Attribute directives` and `Structural directives`.
 ``` 
 
 #### Custom Directive
+**Commands**
+```bash
+ng generate directive folder/name --skip-tests
+ng g d folder/name --skip-tests
+```
 ```ts
 @Directive({ //@angular/core
 	selector:'[appHighlight]' // required to name directive square brakets mean its attribute
