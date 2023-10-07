@@ -121,16 +121,56 @@ We can divide them into `Attribute directives` and `Structural directives`.
 
 #### Custom Directive
 ```ts
-@Directive({
+@Directive({ //@angular/core
 	selector:'[appHighlight]' // required to name directive square brakets mean its attribute
 })
-export class HightlightDirective implements OnInit {
-	constructor(private elementRef:ElementRef) {}
+export class HightlightDirective implements OnInit { //@angular/core
+	constructor(private elementRef:ElementRef, private renderer:Renderer2) {} //@angular/core
+	
+
+	// set default property for colors
+	@Input() defaultColor:string='transparent'
+	@Input() overColor:string='red'
+
+	// it will automatically set the element property when you change the value
+	@HostBinding('style.backgroundColor') backgroundColor:string = 'transparent';
+
 	ngOnInit(){
-		this.elementRef.nativeElement.style.backgroundColor = 'red';
+		this.elementRef.nativeElement.style.backgroundColor = 'red'; // bad practise
+		this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'red'); // good practise
+
+		// set default value before render for property binding directive
+		backgroundColor = defaultColor;
+	}
+
+	// add events using directive to element @HostListener part of @angular/core
+	// Adding Event listner to element also called reactive directive
+	@HostListener('mouseenter') moreover(e:Event) {
+		this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'red');
+		// you don't need to set style specifically in above line but set only the backgroundColor value
+		backgroundColor = 'red';
+
+		// property set outside
+		backgroundColor = overColor;
+	}
+	@HostListener('mouseleave') moreout(e:Event) {
+		this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'transparent');
+		// you don't need to set style specifically in above line but set only the backgroundColor value
+		backgroundColor = 'transparent';
+
+		// property set outside
+		backgroundColor = defaultColor;
 	}
 }
-/* use it as an attribute of any tag <p appHighlight>This text highlight with red background</p> */
+/* use it as an attribute of any tag 
+<p appHighlight>This text highlight with red background</p> 
+*/
+/* another example with property binding 
+<p appHighlight [defaultColor]="'yellow'" [overColor]="'green'">This text highlight with red background</p> 
+*/
+/* another example with property binding if we use for @Input('appHighlight') overColor
+<p [appHighlight]="'green'" [defaultColor]="'yellow'">This text highlight with red background</p> 
+*/
 ```
 
 -
