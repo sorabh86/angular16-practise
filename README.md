@@ -227,7 +227,10 @@ username.nativeElement.value;
 5. 
 
 ## Services 
-
+```bash
+ng generate service folder/Name --skip-tests
+ng g s folder/Name --skip-tests
+```
 
 ## Commands
 ```bash
