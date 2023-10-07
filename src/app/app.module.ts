@@ -6,6 +6,7 @@ import { BasicDirective } from './directive/basic.directive';
 import { BetterDirective } from './directive/better.directive';
 import { ReactiveDirective } from './directive/reactive.directive';
 import { ReactiveBindingDirective } from './directive/reactive-binding.directive';
+import { UnlessDirective } from './directive/unless.directive';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ReactiveBindingDirective } from './directive/reactive-binding.directive
     BasicDirective,
     BetterDirective,
     ReactiveDirective,
-    ReactiveBindingDirective
+    ReactiveBindingDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule

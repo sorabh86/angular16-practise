@@ -8,3 +8,25 @@
     [defaultColor]="'antiquewhite'" 
     [hoverColor]="'lightgreen'"
 >I'm in the AppComponent with reactive directive</h1>
+
+<div class="unless-directives">
+    <button class="btn btn-primary" (click)="onUnlessBtnClick()">Toggle Unless</button>
+
+    <!-- <p *ngIf="isUnless; else unlessTemplate">This show if isUnless is true</p>
+
+    <ng-template #unlessTemplate>
+        <p>You don't have is unless false</p>
+    </ng-template> -->
+
+    <p *appUnless="isUnless">This show if isUnless is {{unless?'true':'false'}}</p>
+</div>
+
+<div class="switch-case">
+    <div [ngSwitch]="value">
+        <p *ngSwitchCase="1">case 1</p>
+        <p *ngSwitchCase="2">case 2</p>
+        <p *ngSwitchCase="3">case 3</p>
+        <p *ngSwitchCase="4">case 4</p>
+        <p *ngSwitchDefault>case default</p>
+    </div>
+</div>
