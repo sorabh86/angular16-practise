@@ -83,6 +83,13 @@ ng g c ${name} --skip-tests
 
 ## Directives
 Directives are instructions in the DOM.
+We can divide them into `Attribute directives` and `Structural directives`.
+
+#### Attribute directives
+* Look like a normal HTML Attribute, only affect/change the elements already added in DOM.
+#### Structural directives
+* Look like a normal HTML Attribute but have a leading *. They affect a whole area in the DOM(Elements gets added or removed).
+
 1. Custom: @Directive({selector:"[my-directive]"}) class MyDirective
 2. It is a structural directive(Structure directive start with *star) <div *ngIf="condition" />
 ```html
@@ -111,6 +118,21 @@ Directives are instructions in the DOM.
 	<h3>Hello world</h3> <!-- this line added to the hook ng-content -->
 </app-my-component>
 ``` 
+
+#### Custom Directive
+```ts
+@Directive({
+	selector:'[appHighlight]' // required to name directive square brakets mean its attribute
+})
+export class HightlightDirective implements OnInit {
+	constructor(private elementRef:ElementRef) {}
+	ngOnInit(){
+		this.elementRef.nativeElement.style.backgroundColor = 'red';
+	}
+}
+/* use it as an attribute of any tag <p appHighlight>This text highlight with red background</p> */
+```
+
 -
 ## Decorater
 1. @Input(<attribute-name>:string | default same as variable name) - used to expose your component variable set from outside;
