@@ -4,12 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BasicDirective } from './directive/basic.directive';
 import { BetterDirective } from './directive/better.directive';
+import { ReactiveDirective } from './directive/reactive.directive';
+import { ReactiveBindingDirective } from './directive/reactive-binding.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicDirective,
-    BetterDirective
+    BetterDirective,
+    ReactiveDirective,
+    ReactiveBindingDirective
   ],
   imports: [
     BrowserModule
