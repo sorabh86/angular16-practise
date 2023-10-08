@@ -17,11 +17,4 @@ export class AppComponent implements OnInit {
     this.accounts = this.accountService.accounts;
   }
 
-  onStatusChanged(account:AccountStatus) {
-    this.accountService.updateStatus(account.id, account.newStatus);
-  }
-
-  onAccountAdded(account:Account) {
-    this.accountService.addAcount(account.name, account.status);
-  }
 }
