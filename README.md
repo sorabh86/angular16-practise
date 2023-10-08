@@ -232,6 +232,15 @@ Add the field in @Component({provider:[MyService]}). If Parent component is prov
 ng generate service folder/Name --skip-tests
 ng g s folder/Name --skip-tests
 ```
+#### Provide Service class to a module
+```ts
+@NgModule({
+	declarations:[], // import components used in this module
+	imports:[], // import modules used in this module
+	providers:[MyService], // add it to providers array
+	bootstrap:[] // root app component
+})
+```
 
 ## Commands
 ```bash
