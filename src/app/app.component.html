@@ -1,14 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <app-active-users
-                [users]="activeUsers"
-                (onUpdate)="onInactiveStateChangeHandle($event)"
-            ></app-active-users>
-            <app-inactive-users
-                [users]="inactiveUsers"
-                (onUpdate)="onActiveStateChangeHandle($event)"
-            ></app-inactive-users>
+            <app-active-users></app-active-users>
+            <app-inactive-users></app-inactive-users>
         </div>
     </div>
 </div>
