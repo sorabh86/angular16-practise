@@ -226,7 +226,8 @@ username.nativeElement.value;
 ```
 5. 
 
-## Services 
+## Services & Dependency Injection
+Add the field in @Component({provider:[MyService]}). If Parent component is provider and you inject on child component then you don't need to mention to its childs @Component metadata(annotation), All child component will inject the same instance of service if you don't mention this on its child components.
 ```bash
 ng generate service folder/Name --skip-tests
 ng g s folder/Name --skip-tests
