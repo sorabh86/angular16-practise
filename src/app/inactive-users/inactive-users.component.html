@@ -1,0 +1,9 @@
+<h3>Inactive Users</h3>
+<ul class="list-group">
+    <li class="list-group-item clearfix"
+        *ngFor="let user of users; let i = index"
+    >
+        <span>{{user}}</span> 
+        <a class="btn btn-link" href="#" (click)="onSetActive(i)">Set Active</a>
+    </li>
+</ul>
