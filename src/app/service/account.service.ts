@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Account } from '../type/types';
 
+@Injectable()
 export class AccountService {
     accounts:Account[] = [
         {
