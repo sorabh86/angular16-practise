@@ -1,0 +1,11 @@
+<h2>Servers</h2>
+<div class="form-group">
+    <button class="btn btn-info" (click)="onAddServer()">New Server</button>
+</div>
+<ul class="list-group">
+    <li *ngFor="let server of servers" class="list-group-item">
+        {{server.name}}
+    </li>
+</ul>
+<button class="btn btn-primary" (click)="onReloadPage()">Reload Page</button>
+

@@ -1,1 +1,16 @@
-<h1>I'm in the AppComponent</h1>
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li role="presentation" 
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}"
+        >
+            <a routerLink="/">Home</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+            <a routerLink="/servers">Servers</a></li>
+        <li role="presentation" routerLinkActive="active">
+            <a routerLink="/users">Users</a></li>
+    </ul>
+    
+    <router-outlet></router-outlet>
+</div>

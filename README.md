@@ -242,6 +242,32 @@ ng g s folder/Name --skip-tests
 })
 ```
 
+## Routing
+You can add various routes component based or module based.
+* In app.module.ts file defined as example.
+```ts
+const appRoute:Router = [ //import from @angular/router
+	{path:'', component:MyComponent} // without leading slash(/)
+	{path:'users', component:UsersComponent}
+]
+@NgModule({
+	...
+	imports:[RouterModule.forRoot(appRoute)] // @angular/router
+	...
+})
+```
+* define the area where components will be loaded in html
+```ts
+<ul>
+	<li routerLinkActive="active"
+		[routerLinkActiveOptions]="{exact:true}"
+	>
+		<a routerLink="/" >home</a>
+		</li>
+	</ul>
+<router-outlet></router-outlet>
+```
+
 ## Commands
 ```bash
 
