@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from "@angular/router";
+import { Server, ServersService } from './servers.service';
 
 @Component({
   selector: 'app-servers',
@@ -8,25 +9,21 @@ import {Router, ActivatedRoute} from "@angular/router";
 })
 export class ServersComponent implements OnInit {
 
-  servers = [];
+  servers:Server[] = [];
 
   constructor(
+    private serversService:ServersService,
     private router:Router, 
     private route:ActivatedRoute // which route you currently on
   ){}
 
   ngOnInit(): void {
-    this.servers.push({name:'Server:'+this.rand()})
-    this.servers.push({name:'Server:'+this.rand()})
-    this.servers.push({name:'Server:'+this.rand()})
-    this.servers.push({name:'Server:'+this.rand()})
+    this.servers = this.serversService.servers;
   }
 
-  onAddServer() {
-    this.servers.push({name:'Server:'+this.rand()})
-  }
-  rand() {
-    return Math.round(Math.random()*1000);
+  onAddServer(name:string) {
+    if(name == '') return
+    // this.servers.push({id:this.serversService., name:name, status:''})
   }
 
   onReloadPage() {

@@ -1,11 +1,26 @@
-<h2>Servers</h2>
-<div class="form-group">
-    <button class="btn btn-info" (click)="onAddServer()">New Server</button>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Servers</h2>
+        <!-- <div class="btn-group form-group">
+            <input #serverName placeholder="Server Name" type="text" class="form-control">
+            <button class="btn btn-info" (click)="onAddServer(serverName.value)">New Server</button>
+        </div> -->
+        <div class="list-group">
+                <a *ngFor="let server of servers" 
+                    [routerLink]="['/servers', server.id]" 
+                    [queryParams]="{allowEdit:'1'}"
+                    fragment="loading"
+                    class="list-group-item">
+                    <span>{{server.name}}</span>
+                    <span class="pull-right">{{server.status}}</span>
+                </a>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <app-edit-server></app-edit-server>
+        <hr>
+        <app-server></app-server>
+    </div>
 </div>
-<ul class="list-group">
-    <li *ngFor="let server of servers" class="list-group-item">
-        {{server.name}}
-    </li>
-</ul>
-<button class="btn btn-primary" (click)="onReloadPage()">Reload Page</button>
 
