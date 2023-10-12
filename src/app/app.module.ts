@@ -10,15 +10,17 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ServersService } from './servers/servers.service';
+import { UserService } from './users/users.service';
 
 const appRoutes:Routes = [
   {path:'', component:HomeComponent},
-  {path:'users', component:UsersComponent},
-  {path:'users/:id', component:UserComponent},
-  {path:'servers', component:ServersComponent},
-  {path:'servers/:id', component:ServerComponent},
-  {path:'servers/:id/edit', component:EditServerComponent},
-
+  {path:'users', component:UsersComponent, children:[
+    {path:':id', component:UserComponent},
+  ]},
+  {path:'servers', component:ServersComponent, children:[
+    {path:':id', component:ServerComponent},
+    {path:':id/edit', component:EditServerComponent},
+  ]},
 ];
 
 @NgModule({
@@ -35,7 +37,7 @@ const appRoutes:Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ServersService],
+  providers: [ServersService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

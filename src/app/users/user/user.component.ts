@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { User, UserService } from '../users.service';
 
 @Component({
   selector: 'app-user',
@@ -8,24 +9,29 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit, OnDestroy {
-  user = {
+  user:User = {
     id: 1,
     name: 'sorabh',
   };
   paramsSubscription: Subscription;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
-    this.user = {
-      id: this.route.snapshot.params['id'],
-      name: 'Unknown',
-    };
+    let id = +this.route.snapshot.params['id'];
+    console.log(id);
+
+    let user = this.userService.getUser(id);
+    this.user = user;
 
     // fix not updating data when redirecting to same component but data is not updating
     this.paramsSubscription = this.route.params.subscribe((params: Params) => {
-      this.user.id = params['id'];
-      this.user.name = params['name'];
+      let id = +params['id'];
+      let user = this.userService.getUser(id);
+      this.user = user;
     });
   }
 
