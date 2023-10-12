@@ -1,3 +1,14 @@
 <h2>home works!</h2>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam rerum, ipsam saepe, deserunt itaque quos asperiores eos illum iste consequatur ea.</p>
 <button class="btn btn-primary" (click)="loadServers()">Load Servers</button>
+<hr>
+<p style="font-weight: bold;">Login Status: <span class="text-danger">{{isLoggedIn}}</span></p>
+<div style="display: flex; gap:12px">
+        <button type="button" class="btn btn-primary"
+            (click)="login()"
+        >Login</button>
+        <button type="button" class="btn btn-danger"
+            (click)="logout()"
+        >Logout</button>
+</div>
+

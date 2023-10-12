@@ -7,7 +7,6 @@ import { AuthService } from './auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  @ViewChild('progressBar') progressElement:ElementRef;
 
   constructor(private authService:AuthService){}
 
@@ -16,6 +15,5 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
   
   ngAfterViewInit(): void {
-    this.authService.progressElement = this.progressElement.nativeElement;
   }
 }

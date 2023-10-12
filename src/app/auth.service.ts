@@ -1,10 +1,14 @@
 export class AuthService {
     loggedIn = false;
-    progressElement:HTMLElement;
 
     isAuthenticated() {
         const promise = new Promise(
             (resolve, reject) => {
+                
+                if(this.loggedIn) {
+                    resolve(this.loggedIn);
+                }
+
                 setTimeout(() => {
                     resolve(this.loggedIn);
                 }, 1000)
