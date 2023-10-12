@@ -14,6 +14,7 @@ import { UserService } from './users/users.service';
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-rouding.module';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,11 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [ServersService, UserService],
+  providers: [
+    ServersService, 
+    UserService,
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
