@@ -1,13 +1,23 @@
 <h3>Edit Server</h3>
-<div class="form">
+<div *ngIf="!allowEdit; else template" class="alert alert-info">You're not allowed to edit!</div>
+<ng-template #template class="form">
     <div class="form-group">
         <label for="serverName">Server Name</label>
         <input type="text" 
             placeholder="Server Name" 
-            name="serverName" class="form-control">
+            name="serverName" class="form-control"
+            [value]="server.name">
     </div>
     <div class="form-group">
         <label for="serverStatus">Server Status</label>
-        <input type="number" placeholder="Online" name="serverStatus" class="form-control">
+        <select placeholder="Online" name="serverStatus" class="form-control"
+            [value]="server.status">
+            <option value="Online" selected>Online</option>    
+            <option value="Offline">Offline</option>    
+        </select>
     </div>
-</div>
+    <div class="form-group" style="display:flex;gap:16px">
+        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-default">Cancel</button>
+    </div>
+</ng-template>
