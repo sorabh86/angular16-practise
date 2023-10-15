@@ -3,6 +3,10 @@ export type Server = {
     name:string
     status:string
 }
+export type ServerData = {
+  name:string
+  status:string
+}
 
 export class ServersService {
   servers:Server[] = [
@@ -21,5 +25,11 @@ export class ServersService {
   
   rand():number {
     return Math.round(Math.random()*1000);
+  }
+
+  updateServer(id:number, server:ServerData):void {
+    let temps = this.getServer(id);
+    temps.name = server.name;
+    temps.status = server.status;
   }
 }

@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.co
 import { AppRoutingModule } from './app-rouding.module';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
+import { CanDeactivateGuard } from './servers/edit-server/can-deactivate.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AuthService } from './auth.service';
     ServersService, 
     UserService,
     AuthService,
+    CanDeactivateGuard,
   ],
   bootstrap: [AppComponent]
 })

@@ -6,18 +6,18 @@
         <input type="text" 
             placeholder="Server Name" 
             name="serverName" class="form-control"
-            [value]="server.name">
+            [(ngModel)]="serverName">
     </div>
     <div class="form-group">
         <label for="serverStatus">Server Status</label>
         <select placeholder="Online" name="serverStatus" class="form-control"
-            [value]="server.status">
+            [(ngModel)]="serverStatus">
             <option value="Online" selected>Online</option>    
             <option value="Offline">Offline</option>    
         </select>
     </div>
     <div class="form-group" style="display:flex;gap:16px">
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary" (click)="onUpdateServer()">Save</button>
         <button class="btn btn-default">Cancel</button>
     </div>
 </ng-template>
