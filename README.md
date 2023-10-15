@@ -268,6 +268,18 @@ const appRoute:Router = [ //import from @angular/router
 <router-outlet></router-outlet>
 ```
 
+#### route location
+We can fall backc to #(hash) based routing application
+```ts
+const appRoutes = [] // array of various routes links
+
+@NgModule({
+	imports: [
+		RouterModule.forRoot(appRoutes, {useHash:true})
+	]
+})
+```
+
 ## Commands
 ```bash
 
