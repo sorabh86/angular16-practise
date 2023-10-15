@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate.service';
 import { GenericErrorPageComponent } from './errors/generic-error-page/generic-error-page.component';
+import { ServerResolver } from './servers/server/server-resolver.service';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { GenericErrorPageComponent } from './errors/generic-error-page/generic-e
     UserService,
     AuthService,
     CanDeactivateGuard,
+    ServerResolver,
   ],
   bootstrap: [AppComponent]
 })

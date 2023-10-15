@@ -18,8 +18,7 @@ export class ServersService {
 
   getServer(id: number):Server {
     // console.log('Servers: ', this.servers);
-    
-    return this.servers.filter(item=>(item.id==id))[0];
+    return this.servers.find(item=>(item.id==id));
   }
 
   

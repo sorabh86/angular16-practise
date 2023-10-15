@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Data } from '@angular/router';
 import { Server, ServersService } from '../servers.service';
 
 @Component({
@@ -17,14 +17,19 @@ export class ServerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let id: number = this.route.snapshot.params['id'];
-    let server: Server = this.serversService.getServer(id);
-    if (server) {
-      this.server = server;
-      this.route.params.subscribe((params) => {
-        this.server = this.serversService.getServer(+params['id']);
-      });
-    }
+    this.route.data.subscribe((data:Data) => {
+      this.server = data['server']; // data is comming from router resolve class to solve the object
+    });
+
+    /************ Manually input data in component ***********/
+    // let id: number = this.route.snapshot.params['id'];
+    // let server: Server = this.serversService.getServer(id);
+    // if (server) {
+    //   this.server = server;
+    //   this.route.params.subscribe((params) => {
+    //     this.server = this.serversService.getServer(+params['id']);
+    //   });
+    // }
   }
 
   onEdit(): void {
