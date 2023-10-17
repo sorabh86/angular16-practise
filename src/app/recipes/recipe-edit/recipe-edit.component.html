@@ -3,15 +3,15 @@
         <h1>{{title}}</h1>
         <div class="form-group">
             <label>Recipe Name</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" [value]="recipe.name">
         </div>
         <div class="form-group">
             <label>Recipe Description</label>
-            <textarea class="form-control"></textarea>
+            <textarea class="form-control" [value]="recipe.description"></textarea>
         </div>
         <div class="form-group">
             <label>Recipe Image Path</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" [value]="recipe.imagePath">
         </div>
         <div class="form-group">
             <button class="btn btn-primary">Save</button>
