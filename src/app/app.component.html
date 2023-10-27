@@ -1,1 +1,14 @@
-<h1>I'm in the AppComponent</h1>
+<div class="container">
+  <ul class="nav nav-pills">
+    <li routerLinkActive="active">
+      <a class="nav-link" routerLink="/home">Home</a>
+    </li>
+    <li  routerLinkActive="active"
+        *ngFor="let user of users; let i = index">
+      <a class="nav-link" routerLink="/users/{{i}}"
+        >User {{ i }}</a>
+    </li>
+  </ul>
+  
+  <router-outlet></router-outlet>
+</div>
