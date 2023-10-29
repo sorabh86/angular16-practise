@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user',
@@ -9,7 +10,10 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class UserComponent implements OnInit {
   id:number;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private userService:UserService,  
+  ) {}
 
   ngOnInit(): void {
 
@@ -17,5 +21,10 @@ export class UserComponent implements OnInit {
       this.id = +params['id'];
       // console.log(params['id'], this.id);
     });
+  }
+
+  onActivate() {
+    // this.userService.activatedEmitter.emit(true);
+    this.userService.activatedEmitter.emit(true);
   }
 }
