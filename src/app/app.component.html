@@ -2,7 +2,10 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <h1>Form Example</h1>
-      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <form 
+        (ngSubmit)="onSubmit()" 
+        #f="ngForm"
+      >
         <div id="ng-group" 
           ngModelGroup="userData"
           #userData="ngModelGroup">
@@ -30,7 +33,9 @@
               type="text" 
               id="email" 
               class="form-control"
+              #email="ngModel"
             />
+            <p *ngIf="email.invalid && email.touched" class="text-danger">Please enter valid email.</p>
           </div>
           <p class="text-danger" *ngIf="userData.invalid">User Data is invalid</p>
         </div>
@@ -38,7 +43,9 @@
           <label for="message">Message</label>
           <textarea
             [(ngModel)]="message"
-            name="message" class="form-control"></textarea>
+            name="message" 
+            class="form-control"
+          ></textarea>
           <p class="h4">Your Reply: {{message}}</p>
         </div>
         <div class="form-group">
@@ -64,6 +71,17 @@
           [disabled]="f.invalid"
         >Submit</button>
       </form>
+    </div>
+  </div>
+  <hr>
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+      <h3>Your Data</h3>
+      <p>Username: {{user.username}}</p>
+      <p>Mail: {{user.email}}</p>
+      <p>Secret Question: {{user.secret}}</p>
+      <p>Message: {{user.message}}</p>
+      <p>Gender: {{user.gender}}</p>
     </div>
   </div>
 </div>

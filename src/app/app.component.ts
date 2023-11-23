@@ -13,6 +13,14 @@ export class AppComponent {
   message:string;
 
   genders = ['male', 'female'];
+  user = {
+    username: '',
+    email: '',
+    secret: '',
+    message: '',
+    gender: ''
+  };
+  submitted = false;
 
   suggestUserName() {
     const suggestedName = 'Superuser';
@@ -36,8 +44,13 @@ export class AppComponent {
     });
   }
 
-  onSubmit(f:NgForm) {
-    console.log(f);
+  onSubmit() {
+    this.submitted = true;
+    this.user.username = this.signupForm.value.userData.username;
+    this.user.email = this.signupForm.value.userData.username;
+    this.user.secret = this.signupForm.value.secret;
+    this.user.message = this.signupForm.value.message;
+    this.user.gender = this.signupForm.value.gender;
   }
   // onSubmit(f:NgForm) {
   //   console.log(f);
