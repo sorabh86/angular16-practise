@@ -44,6 +44,10 @@ export class AppComponent {
     });
   }
 
+  resetHandle() {
+    this.signupForm.reset();
+  }
+
   onSubmit() {
     this.submitted = true;
     this.user.username = this.signupForm.value.userData.username;

@@ -70,6 +70,10 @@
         <button class="btn btn-primary" type="submit"
           [disabled]="f.invalid"
         >Submit</button>
+        <button class="btn btn-default clear-btn" 
+          type="button"
+          (click)="resetHandle()"
+        >Reset/Clear</button>
       </form>
     </div>
   </div>
