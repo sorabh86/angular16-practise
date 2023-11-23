@@ -16,7 +16,11 @@
               class="form-control"
             />
           </div>
-          <button type="button" class="btn btn-default">Suggest a Username</button>
+          <button 
+            type="button" 
+            class="btn btn-default"
+            (click)="suggestUserName()"
+          >Suggest a Username</button>
           <div class="form-group">
             <label for="email">Email</label>
             <input ngModel 

@@ -16,15 +16,24 @@ export class AppComponent {
 
   suggestUserName() {
     const suggestedName = 'Superuser';
-    this.signupForm.setValue({
+
+    // set all controls values using form method
+    // this.signupForm.setValue({
+    //   userData: {
+    //     username:suggestedName,
+    //     email:''
+    //   },
+    //   secret: 'pet',
+    //   message: '',
+    //   gender: 'male'
+    // });
+
+    // set only certail controls
+    this.signupForm.form.patchValue({
       userData: {
-        username:suggestedName,
-        email:''
-      },
-      secret: 'pet',
-      message: '',
-      gender: 'male'
-    })
+        username: suggestedName
+      }
+    });
   }
 
   onSubmit(f:NgForm) {
